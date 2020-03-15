@@ -83,9 +83,9 @@ namespace CloneOSU {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Taeget {
+        internal static System.Drawing.Bitmap Target {
             get {
-                object obj = ResourceManager.GetObject("Taeget", resourceCulture);
+                object obj = ResourceManager.GetObject("Target", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

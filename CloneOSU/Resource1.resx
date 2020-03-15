@@ -124,7 +124,7 @@
   <data name="Handler" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Handler.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Taeget" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Taeget.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Target" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Target.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
