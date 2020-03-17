@@ -10,6 +10,7 @@ namespace CloneOSU
                       TargetTexture = Resource1.Target;
         private Point _targetPosition = new Point(300, 300);
         private Point _direction = Point.Empty;
+        private int _score = 0;
 
         public CloneOSU()
         {
@@ -20,6 +21,7 @@ namespace CloneOSU
                 ControlStyles.UserPaint, true);
 
             UpdateStyles();
+            Score.Text = "Score:\n0";
         }
 
         // Метод перерисовки.
@@ -34,15 +36,22 @@ namespace CloneOSU
 
             // Запрет выхода Target за пределы окна.
             if (_targetPosition.X < 0 || _targetPosition.X > 500)
-                _direction.X = 200;
+                _direction.X *= -1;
             if (_targetPosition.Y < 0 || _targetPosition.Y > 500)
-                _direction.Y = 200;
+                _direction.Y *= -1;
+
+            // Начисление очков.
+            Point between = new Point(localPosition.X - _targetPosition.X, localPosition.Y - _targetPosition.Y);
+            float distance = (float)Math.Sqrt(between.X * between.X + between.Y * between.Y);
+
+            if (distance < 20)
+                AddScore(1);
 
             var handlerRect = new Rectangle(localPosition.X - 50, localPosition.Y - 50, 100, 100);
             var targetRect = new Rectangle(_targetPosition.X - 50, _targetPosition.Y - 50, 100, 100);
 
-            g.DrawImage(HandlerTexture, handlerRect);
-            g.DrawImage(TargetTexture, targetRect);
+            g.DrawImage(TargetTexture, handlerRect);
+            g.DrawImage(HandlerTexture, targetRect);
         }
 
         // Таймертик.
@@ -58,6 +67,13 @@ namespace CloneOSU
                 _direction.X = r.Next(-1, 2);
                 _direction.Y = r.Next(-1, 2);
             };
+        }
+
+        // Метод начисления очков.
+        void AddScore(int score)
+        {
+            _score += score;
+            Score.Text = $"Score:\n{_score.ToString()}";
         }
     }
 }
